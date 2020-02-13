@@ -1,0 +1,9 @@
+*.xml
+*.html
+*.class
+*.iml
+*.kotlin
+*.kotlin_module
+*.classpath
+*.project
+*.prefs
