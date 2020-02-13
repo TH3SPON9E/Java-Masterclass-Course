@@ -1,4 +1,6 @@
 // Ignore all files other than .java
+!Section1/Introduction Videos online.txt
+!Section2/Installation of Java and IDE.txt
 *.xml
 *.html
 *.class

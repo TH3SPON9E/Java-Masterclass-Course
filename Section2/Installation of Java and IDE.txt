@@ -1,0 +1,1 @@
+Installed JDK 11 and Intellij Idea Community
