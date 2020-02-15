@@ -61,4 +61,8 @@ public class Team<T extends Player> {
     public int getPlayed() {
         return played;
     }
+
+    public int getLost() {
+        return lost;
+    }
 }
