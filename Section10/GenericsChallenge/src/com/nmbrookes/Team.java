@@ -8,6 +8,8 @@ public class Team<T extends Player> implements Comparable<Team<T>> {
     private int won = 0;
     private int lost = 0;
     private int draw = 0;
+    private int goalsScored = 0;
+    private int goalsAgainst = 0;
 
     private ArrayList<T> players = new ArrayList<>();
 
@@ -17,6 +19,18 @@ public class Team<T extends Player> implements Comparable<Team<T>> {
 
     public String getName() {
         return name;
+    }
+
+    public int getGoalsScored() {
+        return goalsScored;
+    }
+
+    public int getGoalsAgainst() {
+        return goalsAgainst;
+    }
+
+    public int getGamesPlayed() {
+        return played;
     }
 
     public boolean addPlayer(T player) {
@@ -34,6 +48,8 @@ public class Team<T extends Player> implements Comparable<Team<T>> {
     }
 
     public void matchResult(Team<T> opponent, int ourScore, int theirScore) {
+        goalsScored += ourScore;
+        goalsAgainst += theirScore;
         String message;
         if(ourScore > theirScore) {
             this.won++;
@@ -49,12 +65,12 @@ public class Team<T extends Player> implements Comparable<Team<T>> {
         }
         this.played++;
         if(opponent != null) {
-            System.out.println(this.name + message + opponent.getName());
+//            System.out.println(this.name + message + opponent.getName());
             opponent.matchResult(null, theirScore, ourScore);
         }
     }
 
-    public int ranking() {
+    public int getPoints() {
         return (won * 3) + draw;
     }
 
@@ -68,10 +84,10 @@ public class Team<T extends Player> implements Comparable<Team<T>> {
 
     @Override
     public int compareTo(Team<T> team) {
-        if(this.ranking() > team.ranking()) {
+        if(this.getPoints() > team.getPoints()) {
             return -1;
         }
-        else if(this.ranking() < team.ranking()) {
+        else if(this.getPoints() < team.getPoints()) {
             return 1;
         }
         else {
