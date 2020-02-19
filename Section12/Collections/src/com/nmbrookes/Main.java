@@ -7,7 +7,7 @@ public class Main {
 //        theatre.getSeats();
 
         // Reserve seat
-        if(theatre.reserveSeat("H11")) {
+        if(theatre.reserveSeat("D13")) {
             System.out.println("Please pay.");
         }
         else {
@@ -15,7 +15,7 @@ public class Main {
         }
 
         // Try reserving a reserved seat
-        if(theatre.reserveSeat("H11")) {
+        if(theatre.reserveSeat("D12")) {
             System.out.println("Please pay.");
         }
         else {
