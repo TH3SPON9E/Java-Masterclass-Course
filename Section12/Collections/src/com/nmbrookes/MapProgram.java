@@ -30,8 +30,24 @@ public class MapProgram {
             languages.put("Java", "Java OOP");
         }
 
-        // Removing item
-        languages.remove("Java");
+        // Removing item (will return true/false)
+        languages.remove("Basic");
+        // Checking key and value, both have to match te be removed
+        if(languages.remove("Algol", "An algorithmic language")) {
+            System.out.println("Algol removed");
+        }
+        else {
+            System.out.println("Algol not removed, key/value par not found");
+        }
+
+        // Replace
+        if(languages.replace("Language", "This will not work" ,"A generic language used in this replace method for testing")) {
+            System.out.println("Language replaced");
+        }
+        else {
+            System.out.println("Language not replaced");
+        }
+        System.out.println(languages.replace("Language2", "This language does not exist so will return null"));
 
         // Printing map (No order with HashMap)
         printMap(languages);
