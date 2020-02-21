@@ -10,27 +10,34 @@ public class Main {
     private static Map<Integer, Location> locations = new HashMap<>();
 
     public static void main(String[] args) {
-        locations.put(0, new Location(0, "You are sitting in front of a computer playing a Java game"));
-        locations.put(1, new Location(1, "You are standing at the end of a road before a small brick building"));
-        locations.put(2, new Location(2, "You are at the top of a hill"));
-        locations.put(3, new Location(3, "You are inside a building, a well house for a small spring"));
-        locations.put(4, new Location(4, "You are in a valley beside a steam"));
-        locations.put(5, new Location(5, "You are in the forest"));
+        Map<String, Integer> tempExit = new HashMap<String, Integer>();
+        tempExit.put("Q", 0);
+        locations.put(0, new Location(0, "You are sitting in front of a computer playing a Java game", null));
 
-        locations.get(1).addExit("W", 5);
-        locations.get(1).addExit("D", 3);
-        locations.get(1).addExit("S", 4);
-        locations.get(1).addExit("A", 2);
+        tempExit = new HashMap<String, Integer>();
+        tempExit.put("W", 5);
+        tempExit.put("D", 3);
+        tempExit.put("S", 4);
+        tempExit.put("A", 2);
+        locations.put(1, new Location(1, "You are standing at the end of a road before a small brick building", tempExit));
 
-        locations.get(2).addExit("W", 5);
+        tempExit = new HashMap<String, Integer>();
+        tempExit.put("W", 5);
+        locations.put(2, new Location(2, "You are at the top of a hill", tempExit));
 
-        locations.get(3).addExit("A", 1);
+        tempExit = new HashMap<String, Integer>();
+        tempExit.put("A", 1);
+        locations.put(3, new Location(3, "You are inside a building, a well house for a small spring", tempExit));
 
-        locations.get(4).addExit("W", 1);
-        locations.get(4).addExit("A", 2);
+        tempExit = new HashMap<String, Integer>();
+        tempExit.put("W", 1);
+        tempExit.put("A", 2);
+        locations.put(4, new Location(4, "You are in a valley beside a steam", tempExit));
 
-        locations.get(5).addExit("S", 1);
-        locations.get(5).addExit("A", 2);
+        tempExit = new HashMap<String, Integer>();
+        tempExit.put("S", 1);
+        tempExit.put("A", 2);
+        locations.put(5, new Location(5, "You are in the forest", tempExit));
 
         Map<String, String> vocabulary = new HashMap<>();
         vocabulary.put("QUIT", "Q");
@@ -40,10 +47,10 @@ public class Main {
         vocabulary.put("WEST", "A");
 
         System.out.println("Controls:");
-        System.out.println("North (W), South (S), East (D), West (A), Quit (Q)");
 
         int loc = 1;
         while(true) {
+            System.out.println("North (W), South (S), East (D), West (A), Quit (Q)");
             System.out.println(locations.get(loc).getDescription());
             if(loc == 0) {
                 break;
