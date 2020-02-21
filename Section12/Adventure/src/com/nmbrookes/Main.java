@@ -21,21 +21,23 @@ public class Main {
         locations.get(1).addExit("D", 3);
         locations.get(1).addExit("S", 4);
         locations.get(1).addExit("A", 2);
-//        locations.get(1).addExit("Q", 0);
 
         locations.get(2).addExit("W", 5);
-//        locations.get(2).addExit("Q", 0);
 
         locations.get(3).addExit("A", 1);
-//        locations.get(3).addExit("Q", 0);
 
         locations.get(4).addExit("W", 1);
         locations.get(4).addExit("A", 2);
-//        locations.get(4).addExit("Q", 0);
 
         locations.get(5).addExit("S", 1);
         locations.get(5).addExit("A", 2);
-//        locations.get(5).addExit("Q", 0);
+
+        Map<String, String> vocabulary = new HashMap<>();
+        vocabulary.put("QUIT", "Q");
+        vocabulary.put("NORTH", "W");
+        vocabulary.put("SOUTH", "S");
+        vocabulary.put("EAST", "D");
+        vocabulary.put("WEST", "A");
 
         System.out.println("Controls:");
         System.out.println("North (W), South (S), East (D), West (A), Quit (Q)");
@@ -47,32 +49,24 @@ public class Main {
                 break;
             }
             Map<String, Integer> exits = locations.get(loc).getExits();
-//            System.out.print("Available exits are: ");
-//            for(String exit: exits.keySet()) {
-//                if(exit.equalsIgnoreCase("w")) {
-//                    System.out.print("North (W) ");
-//                }
-//                else if(exit.equalsIgnoreCase("s")) {
-//                    System.out.print("South (S) ");
-//                }
-//                else if(exit.equalsIgnoreCase("a")) {
-//                    System.out.print("West (A) ");
-//                }
-//                else if(exit.equalsIgnoreCase("d")) {
-//                    System.out.print("East (D) ");
-//                }
-//                else {
-//                    System.out.print("Quit (Q) ");
-//                }
-//            }
-//            System.out.println();
 
             String direction = scanner.nextLine().toUpperCase();
+
+            if(direction.length() > 1) {
+                String[] words = direction.split(" ");
+                for(String word: words) {
+                    if(vocabulary.containsKey(word)) {
+                        direction = vocabulary.get(word);
+                        break;
+                    }
+                }
+            }
+
             if(exits.containsKey(direction)) {
                 loc = exits.get(direction);
             }
             else {
-                System.out.println("You cannot go in that direction");
+                System.out.println("You cannot go in this direction");
             }
         }
     }
