@@ -7,8 +7,32 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <StackPane fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml">
     <Label text="This is my Label" style="-fx-background-color: green"/>
     <Label text="This is my Label 2" style="-fx-background-color: blue"/>
     <Button text="Button1" style="-fx-background-color: red"/>
 </StackPane>
+
+<!--<BorderPane>-->
+<!--    <top>-->
+<!--        <Label text="Hello World" alignment="BOTTOM_RIGHT"/>-->
+<!--    </top>-->
+
+<!--    <bottom>-->
+<!--        <Label text="Hello World" alignment="BOTTOM_RIGHT"/>-->
+<!--    </bottom>-->
+
+<!--    <left>-->
+<!--        <Label text="Hello World" alignment="BOTTOM_RIGHT"/>-->
+<!--    </left>-->
+
+<!--    <right>-->
+<!--        <Label text="Hello World" alignment="BOTTOM_RIGHT"/>-->
+<!--    </right>-->
+
+<!--    <center>-->
+<!--        <Label text="Hello World" alignment="BOTTOM_RIGHT"/>-->
+<!--    </center>-->
+
+<!--</BorderPane>-->
